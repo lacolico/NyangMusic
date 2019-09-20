@@ -1,44 +1,8 @@
-import enum
+from platform import ChartType, NewestType, Platform
 
 
-# Enums
-class DownloadPfType(enum.Enum):
-    SOUNDCLOUD = enum.auto()
 
-
-class InfoPfType(enum.Enum):
-    GENIE = enum.auto()
-    MUSICBRAINZ = enum.auto()
-
-
-class ChartType(enum.Enum):
-    TOP200 = enum.auto()
-    GENRE = enum.auto()
-    MUSICHISTORY = enum.auto()
-    MUSICVIDEO = enum.auto()
-
-
-class NewestType(enum.Enum):
-    SONG = enum.auto()
-    ALBUM = enum.auto()
-
-
-# Consts
-HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-
-
-class Pf:
-    @classmethod
-    def get_platform(cls, p_type: InfoPfType = None):
-        if p_type is None:
-            return Genie
-        elif p_type is InfoPfType.Genie:
-            return Genie
-        elif p_type is InfoPfType.MUSICBRAINZ:
-            return MusicBrainz
-
-
-class Genie:
+class Genie(Platform):
     URL = 'https://www.genie.co.kr'
 
     CHART = URL + '/chart'
@@ -76,12 +40,3 @@ class Genie:
             return cls.NEWEST_SONG
         elif n_type is NewestType.ALBUM:
             return cls.NEWEST_ALBUM
-
-
-class MusicBrainz:
-    URL = ''
-
-
-class SoundCloud:
-    URL = ''
-

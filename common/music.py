@@ -1,4 +1,4 @@
-from Common import Defines
+from common import defines
 
 
 class Music:
@@ -8,7 +8,7 @@ class Music:
         self._artist = artist  # 아티스트
         self._lricist = kwargs.get('lricist', '')  # 작사가
         self._composer = kwargs.get('composer', '')  # 작곡가
-        self._platform = kwargs.get('platform', Defines.Platform.SOUND_CLOUD)  # 다운로드 플랫폼
+        self._platform = kwargs.get('platform', defines.Platform.SOUND_CLOUD)  # 다운로드 플랫폼
 
     # Getter ------------------------------
     @property

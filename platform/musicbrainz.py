@@ -1,49 +1,35 @@
-import enum
-from typing import List, Callable, Dict
-from Common import Artist
+import datetime
+from typing import List, Callable
+
 import musicbrainzngs
 import pycountry
-import datetime
+
+from common import artist
+from platform import Platform
 
 musicbrainzngs.set_useragent("NyangMusic", "0.0.1")
 
 
-class QueryEntity(enum.Enum):
-    Artist = enum.auto()
-    Track = enum.auto()
-    Record = enum.auto()
-
-
-class ExternalDatabase:
-    def __init__(self, *args, **kwargs):
-        pass
-
-    def query_artist(self, query: str, selector: Callable[[Artist.Artist], bool],
-                     country=None,
-                     qtype: str = None) -> List[Artist.Artist]:
-        return None
-
-
-class Musicbrainz(ExternalDatabase):
+class Musicbrainz(Platform):
 
     @staticmethod
-    def parse_artist_type(arg: str) -> Artist.ArtistType:
+    def parse_artist_type(arg: str) -> artist.ArtistType:
         if arg is None:
             return None
         if arg == "Person":
-            return Artist.ArtistType.Person
+            return artist.ArtistType.Person
         if arg == "Group":
-            return Artist.ArtistType.Group
+            return artist.ArtistType.Group
         return None
 
     @staticmethod
-    def parse_gender(arg: str) -> Artist.Gender:
+    def parse_gender(arg: str) -> artist.Gender:
         if arg is None:
             return None
         if arg == "female":
-            return Artist.Gender.Female
+            return artist.Gender.Female
         if arg == "male":
-            return Artist.Gender.Male
+            return artist.Gender.Male
         return None
 
     @staticmethod
@@ -68,9 +54,9 @@ class Musicbrainz(ExternalDatabase):
             return None
         return datetime.datetime.strptime(arg, "%Y-%m-%d").date()
 
-    def query_artist(self, query: str, selector: Callable[[Artist.Artist], bool],
+    def query_artist(self, query: str, selector: Callable[[artist.Artist], bool],
                      country=None,
-                     qtype: str = None) -> List[Artist.Artist]:
+                     qtype: str = None) -> List[artist.Artist]:
         field = {}
         if country is not None:
             field['country'] = country.alpha_2
@@ -80,7 +66,7 @@ class Musicbrainz(ExternalDatabase):
         result = filter(
             selector,
             map(
-                lambda artist: Artist.Artist(
+                lambda artist: artist.Artist(
                     None,
                     name=artist.get("name", ""),
                     artist_type=Musicbrainz.parse_artist_type(artist.get("type")),
@@ -95,14 +81,6 @@ class Musicbrainz(ExternalDatabase):
         )
         # more infomation searching
         return list(result)
-
-
-class ArtistManager:
-    def __init__(self, extdb: ExternalDatabase):
-        self._extdb = extdb
-
-    def search(self, query: str) -> List[Artist.Artist]:
-        return []
 
 
 if __name__ == '__main__':

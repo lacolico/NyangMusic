@@ -1,6 +1,6 @@
 import logging
 
-import Common.Music as Ms
+import common.music as Ms
 
 
 class Chart:
