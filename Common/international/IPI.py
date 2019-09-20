@@ -37,7 +37,7 @@ class IPI:
 
     @classmethod
     def parse(cls, raw: str, fmt: IPIFormat = IPIFormat.NO_SEP) -> IPI:
-        d = fmt.value[1].search(raw).groupdict()
+        d = fmt.value[1].query(raw).groupdict()
         return cls(d["header"], list(map(int, list(d["id"]))), int(d["check"]))
 
     @property

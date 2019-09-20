@@ -40,7 +40,7 @@ class ISRC:
 
     @classmethod
     def parse(cls, raw: str, fmt: ISRCFormat = ISRCFormat.NO_SEP) -> ISRC:
-        d = fmt.value[1].search(raw).groupdict()
+        d = fmt.value[1].query(raw).groupdict()
         return cls(pycountry.countries.get(alpha_2=d["country"]), d["registrant"], int(d["year"]),
                    list(map(int, list(d["designation"]))))
 
