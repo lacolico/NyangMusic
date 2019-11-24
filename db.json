@@ -1,116 +1,116 @@
 {
   "devices": [
-    { // LED Module
-      "id": 1,     // i
-      "name": 3,   // LED_TYPE_A
-      "type": 3,   // OUTPUT_MODULE
+    {
+      "id": 1,   
+      "name": 3,
+      "type": 3,
       "x": {
-        "name": 1, // LED_RED
+        "name": 1,
         "min": 0, 
         "max": 1   
       },
       "y": {
-        "name": 2, // LED_Green
+        "name": 2,
         "min": 0,
         "max": 1
       },
       "z": {
-        "name": 3, // LED_Blue
+        "name": 3,
         "min": 0,
         "max": 1
       },
       "w": {
-        "name": 0, // UNUSED
+        "name": 0,
         "min": 0,
         "max": 0
       }
     },
     { // Logic Module
-      "id": 2,     // i
-      "name": 2,   // LOGIC_TYPE_A
-      "type": 2,   // LOGIC_MODULE
+      "id": 2,
+      "name": 2,   
+      "type": 2,   
       "x": {
-        "name": 8, // LOGIC_MODE
+        "name": 8, 
         "min": 0, 
         "max": 2  
       },
       "y": {
-        "name": 0, // UNUSED
+        "name": 0,
         "min": 0,
         "max": 0
       },
       "z": {
-        "name": 0, // UNUSED
+        "name": 0,
         "min": 0,
         "max": 0
       },
       "w": {
-        "name": 0, // UNUSED
+        "name": 0,
         "min": 0,
         "max": 0
       }
     },
-    { // Motion Module
-      "id": 3,     // i
-      "name": 6,   // MOTION_TYPE_A
-      "type": 4,   // INPUT_MODULE
+    { 
+      "id": 3,     
+      "name": 6,   
+      "type": 4,  
       "x": {
-        "name": 7, // MOTION_FIND
+        "name": 7, 
         "min": 0, 
         "max": 1   
       },
       "y": {
-        "name": 0, // UNUSED
+        "name": 0, 
         "min": 0,
         "max": 0
       },
       "z": {
-        "name": 0, // UNUSED
+        "name": 0, 
         "min": 0,
         "max": 0
       },
       "w": {
-        "name": 0, // UNUSED
+        "name": 0, 
         "min": 0,
         "max": 0
       }
     },
-    { // Temphumi Module
-      "id": 4,     // i
-      "name": 5,   // TEMPHUMI_TYPE_A
-      "type": 4,   // INPUT_MODULE
+    { 
+      "id": 4,     
+      "name": 5,   
+      "type": 4,   
       "x": {
-        "name": 5, // TEMPHUMI_TEMPERATURE
+        "name": 5, 
         "min": 0, 
         "max": 50   
       },
       "y": {
-        "name": 6, // TEMPHUMI_HUMIDITY
+        "name": 6,
         "min": 20,
         "max": 90
       },
       "z": {
-        "name": 0, // UNUSED
+        "name": 0, 
         "min": 0,
         "max": 0
       },
       "w": {
-        "name": 0, // UNUSED
+        "name": 0, 
         "min": 0,
         "max": 0
       }
     }
   ],
   "event": {
-    "result_msg": 1 // 0: Error, 1: Success 
+    "result_msg": 1
   },
   "is_change": {
-    "result_msg" : 0 // 0: No, 1: Yes
+    "result_msg" : 0 
   },
   "module_count": {
-    "result_msg": 4 // Module Count
+    "result_msg": 4 
   },
   "now_mode" : {
-    "result_msg": 1 // 0: project, 1: logic
+    "result_msg": 1 
   }
 }
