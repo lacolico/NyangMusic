@@ -2,7 +2,7 @@
   "devices": [
     {
       "id": 3,   
-      "name": 3,
+      "name": 4,
       "type": 3,
       "x": {
         "name": 1,
@@ -52,7 +52,7 @@
     },
     { 
       "id": 5,     
-      "name": 6,   
+      "name": 7,   
       "type": 4,  
       "x": {
         "name": 7, 
@@ -77,7 +77,7 @@
     },
     { 
       "id": 6,     
-      "name": 5,   
+      "name": 6,   
       "type": 4,   
       "x": {
         "name": 5, 
